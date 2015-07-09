@@ -1,0 +1,33 @@
+{
+  "name": "node-chat",
+  "version": "0.0.1",
+  "description": "A template for quickly building chat systems on top of Node.js & MongoDb",
+  "author": {
+    "name": "Ali Kiaian",
+    "email": "lkn2993@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+  },
+  "private": true,
+  "dependencies": {
+    "body-parser": "1.13.0",
+    "connect-mongo": "0.8.1",
+    "cookie-parser": "1.3.5",
+    "ejs": "^1.0.0",
+    "emailjs": "0.3.16",
+    "errorhandler": "1.4.0",
+    "express": "4.12.4",
+    "express-session": "1.11.3",
+    "flatten-packages": "*",
+    "jade": "1.11.0",
+    "moment": "2.10.3",
+    "mongodb": "2.0.33",
+    "mongodb-core": "^1.2.3",
+    "socket.io": "^1.3.5",
+    "stylus": "0.51.1"
+  },
+  "engines": {
+    "node": "0.12.4"
+  }
+}
