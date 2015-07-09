@@ -39,6 +39,18 @@ $(function () {
     $("#join-room").click(function () {
        window.open('/home/' + $('textarea#join-str').val());
     });
+    $('textarea#join-str').keydown(function () {
+        if (event.keyCode == 13) {
+            $("#join-room").click();
+            return false;
+        }
+    });
+    $('textarea#friend-str').keydown(function () {
+        if (event.keyCode == 13) {
+            $("#add-friend").click();
+            return false;
+        }
+    });
     function addParticipantsMessage(data) {
         var message = '';
         if (data.numUsers === 1) {
@@ -264,10 +276,14 @@ $(function () {
         addParticipantsMessage(data);
     });
     socket.on('user online', function (data) {
-        alert('your friend ' + data.username + ' is now online');
+        if (username != data.username) {
+            alert('your friend ' + data.username + ' is now online');
+        }
     });
     socket.on('user offline', function (data) {
-        alert('your friend ' + data.username + ' is now offline');
+        if (username != data.username) {
+            alert('your friend ' + data.username + ' is now offline');
+        }
     });
     // Whenever the server emits 'user left', log it in the chat body
     socket.on('user left', function (data) {

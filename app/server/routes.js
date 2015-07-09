@@ -218,12 +218,14 @@ module.exports = function (app, io) {
         });
         socket.on('sign in', function (data) {
             AM.getFriends(data.user, function (e, friendlist) {
-                friends = Object.keys(friendlist);
-                friends.forEach(function (friend) {
-                    socket.broadcast.to(friend).emit('user online', {
-                        username: data.user,
+                if (friendlist != null) {
+                    friends = Object.keys(friendlist);
+                    friends.forEach(function (friend) {
+                        socket.broadcast.to(friend).emit('user online', {
+                            username: data.user,
+                        });
                     });
-                });
+                }
             });
             // echo globally (all clients) that a person has connected
         });
